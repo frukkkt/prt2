@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvfppfwk88b75"]
+
+[ext_resource type="PackedScene" uid="uid://db5arf437ljhc" path="res://card/card.tscn" id="1_tf3la"]
+[ext_resource type="Script" uid="uid://brvuyherfblhu" path="res://ui/build_cards/build_card.gd" id="2_xqgxc"]
+
+[node name="BuildCard" groups=["build_card"] instance=ExtResource("1_tf3la")]
+size_flags_horizontal = 0
+toggle_mode = true
+script = ExtResource("2_xqgxc")
+
+[node name="CountLabel" type="Label" parent="." index="0"]
+layout_mode = 0
+anchor_top = 0.8125
+anchor_right = 1.0
+anchor_bottom = 0.992188
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

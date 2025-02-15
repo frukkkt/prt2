@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bjtp77cj0epib"]
+
+[ext_resource type="Script" uid="uid://b8chfld0l73bd" path="res://ui/goal_reward/goals.gd" id="1_acpt4"]
+
+[resource]
+script = ExtResource("1_acpt4")
+goal_finished = {
+"res://ui/goal_reward/goals/boss_goal/boss_goal.gd": false,
+"res://ui/goal_reward/goals/build_base/build_base.gd": false,
+"res://ui/goal_reward/goals/crystall_goal/crystall_goal.gd": false,
+"res://ui/goal_reward/goals/gold_goal/gold_goal.gd": false,
+"res://ui/goal_reward/goals/number_of_towers_goal/number_of_towers_goal.gd": false,
+"res://ui/goal_reward/goals/time_goal/time_goal.gd": false,
+"res://ui/goal_reward/goals/time_goal_2/time_goal_2.gd": false
+}
+update = false

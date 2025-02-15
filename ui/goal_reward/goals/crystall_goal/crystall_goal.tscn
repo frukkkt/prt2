@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxmnsusp5m0k4"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_slcay"]
+[ext_resource type="Script" uid="uid://bewqodcpbdpa1" path="res://ui/goal_reward/goals/crystall_goal/crystall_goal.gd" id="2_coamj"]
+
+[node name="CrystallGoal" instance=ExtResource("1_slcay")]
+script = ExtResource("2_coamj")
+gold_reward = 200
+goal_name = "Crystalls"

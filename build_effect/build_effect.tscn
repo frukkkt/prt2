@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mgnhuqwbulbs"]
+
+[ext_resource type="Script" uid="uid://bxwdtst2f63x7" path="res://build_effect/build_effect.gd" id="1_ffdtt"]
+[ext_resource type="Resource" uid="uid://dnkiga6ywlvv7" path="res://enemy_effects/all_enemy_effects.tres" id="2_u37q5"]
+
+[node name="BuildEffect" type="Node" groups=["build_effect"]]
+script = ExtResource("1_ffdtt")
+metadata/all_enemy_effects = ExtResource("2_u37q5")
+
+[node name="DescriptionLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Описание эффекта постройки"

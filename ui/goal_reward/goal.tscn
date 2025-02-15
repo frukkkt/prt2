@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyialsjag3864"]
+
+[ext_resource type="Script" uid="uid://bmqfoj4gb5u21" path="res://ui/goal_reward/goal.gd" id="1_u4c6i"]
+
+[node name="Goal" type="Node" groups=["goal"]]
+script = ExtResource("1_u4c6i")

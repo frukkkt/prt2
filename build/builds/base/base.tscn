@@ -1,0 +1,158 @@
+[gd_scene load_steps=10 format=3 uid="uid://dw1xbi3an28oy"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_txmgl"]
+[ext_resource type="Script" uid="uid://cdr3eywqgu75b" path="res://build/builds/base/base.gd" id="2_3wygv"]
+[ext_resource type="PackedScene" uid="uid://cisac7n8cl1iv" path="res://build/builds/base/build_buy_card.tscn" id="3_owg7k"]
+[ext_resource type="Script" uid="uid://uepv1lrbik5r" path="res://build/builds/base/buy_builds.gd" id="4_a2a1q"]
+[ext_resource type="PackedScene" uid="uid://b6upphtm384dd" path="res://build/builds/tower/tower.tscn" id="4_d1xfh"]
+[ext_resource type="Script" uid="uid://oujmaklcoln2" path="res://build/builds/base/bind_cards_to_shift_plus_1234.gd" id="5_ayitq"]
+[ext_resource type="Script" uid="uid://devow1owwrwc" path="res://build/builds/base/load_deck.gd" id="7_8g2lo"]
+[ext_resource type="Script" uid="uid://bepkla6woje1c" path="res://build/builds/base/tutor.gd" id="8_w63vn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb1cg"]
+size = Vector2(32, 32)
+
+[node name="Base" groups=["base"] instance=ExtResource("1_txmgl")]
+script = ExtResource("2_3wygv")
+build_name = "Base"
+
+[node name="Polygon2D" parent="StaticBody2D" index="1"]
+color = Color(0.195137, 0.452082, 0.60625, 1)
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_kb1cg")
+
+[node name="BaseStore" type="CanvasLayer" parent="." index="2"]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="BaseStore" index="0"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_top = -136.0
+offset_right = -32.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseStore/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildBuyCard" parent="BaseStore/Control/HBoxContainer" index="0" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuildBuyCard2" parent="BaseStore/Control/HBoxContainer" index="1" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+text = "Tower"
+packed_build = ExtResource("4_d1xfh")
+
+[node name="BuildBuyCard3" parent="BaseStore/Control/HBoxContainer" index="2" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuildBuyCard4" parent="BaseStore/Control/HBoxContainer" index="3" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuyBuilds" type="Node" parent="BaseStore/Control/HBoxContainer" index="4"]
+script = ExtResource("4_a2a1q")
+
+[node name="BindCardsToShiftPlus1234" type="Node" parent="BaseStore/Control/HBoxContainer" index="5"]
+script = ExtResource("5_ayitq")
+
+[node name="LoadDeck" type="Node" parent="BaseStore/Control/HBoxContainer" index="6"]
+script = ExtResource("7_8g2lo")
+
+[node name="DescriptionLabel" parent="." index="5"]
+text = "Main build"
+
+[node name="Tutor" type="Node" parent="." index="6"]
+script = ExtResource("8_w63vn")
+
+[node name="FastBuyOn1234" type="Panel" parent="Tutor" index="0"]
+visible = false
+offset_left = 768.0
+offset_top = 426.0
+offset_right = 1036.0
+offset_bottom = 502.0
+
+[node name="Label" type="Label" parent="Tutor/FastBuyOn1234" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quick buy on 1 2 3 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FastBuyButton" type="Button" parent="Tutor/FastBuyOn1234" index="1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = -36.0
+offset_right = -68.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ok"
+
+[node name="FastChooseOnQWER" type="Panel" parent="Tutor" index="1"]
+visible = false
+offset_left = 32.0
+offset_top = 426.0
+offset_right = 300.0
+offset_bottom = 502.0
+
+[node name="Label" type="Label" parent="Tutor/FastChooseOnQWER" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quick select on Q W E R"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FastChooseButton" type="Button" parent="Tutor/FastChooseOnQWER" index="1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = -36.0
+offset_right = -68.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ok"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="MyArea"]

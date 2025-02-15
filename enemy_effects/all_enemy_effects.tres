@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dnkiga6ywlvv7"]
+
+[ext_resource type="PackedScene" uid="uid://cv7lllrlw65qi" path="res://enemy_effects/effects/slow/slow.tscn" id="1_v5j7c"]
+[ext_resource type="Script" uid="uid://bfi5lgjhv44tx" path="res://enemy_effects/all_enemy_effects.gd" id="2_5l8wm"]
+
+[resource]
+script = ExtResource("2_5l8wm")
+update = false
+all_enemy_effects = {
+"slow": ExtResource("1_v5j7c")
+}

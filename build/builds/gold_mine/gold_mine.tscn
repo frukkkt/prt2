@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx0ijvmpkucsm"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_nyj8o"]
+[ext_resource type="Script" uid="uid://dd3hrt8m2onun" path="res://build/builds/gold_mine/gold_mine.gd" id="2_v6wd1"]
+[ext_resource type="Texture2D" uid="uid://dd2cw2dmlccsv" path="res://sprites/gold_mine.png" id="3_vtjkn"]
+
+[node name="GoldMine" groups=["gold_mine"] instance=ExtResource("1_nyj8o")]
+script = ExtResource("2_v6wd1")
+build_name = "Gold Mine"
+
+[node name="Polygon2D" parent="StaticBody2D" index="1"]
+color = Color(0.638511, 0.65, 0.282344, 1)
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+texture = ExtResource("3_vtjkn")
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 1.9
+autostart = true
+
+[node name="DescriptionLabel" parent="." index="4"]
+text = "Every 2 seconds +1 gold"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="MyArea"]

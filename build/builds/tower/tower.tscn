@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6upphtm384dd"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_hqatv"]
+[ext_resource type="Script" uid="uid://bp46httv6hjwc" path="res://build/builds/tower/tower.gd" id="2_syy6x"]
+[ext_resource type="Texture2D" uid="uid://detg6g7mq3c26" path="res://sprites/tower.png" id="3_tyyca"]
+[ext_resource type="Script" uid="uid://5hk6omxr51r6" path="res://build/builds/tower/attack_radius_sprite.gd" id="4_lsu1h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vke4h"]
+radius = 400.32
+
+[sub_resource type="Gradient" id="Gradient_jusem"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.698895, 0.702, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.0901961, 0.115, 0.115, 0.115, 0, 0.494, 0.494, 0.494, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hax3f"]
+gradient = SubResource("Gradient_jusem")
+width = 800
+height = 800
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Tower" groups=["tower"] instance=ExtResource("1_hqatv")]
+script = ExtResource("2_syy6x")
+damage = 2
+build_name = "Tower"
+
+[node name="Polygon2D" parent="StaticBody2D" index="1"]
+color = Color(0.653251, 0.416309, 0.65625, 1)
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+position = Vector2(16, 8)
+texture = ExtResource("3_tyyca")
+
+[node name="AttackRadius" type="Area2D" parent="." index="1"]
+unique_name_in_owner = true
+position = Vector2(16, 16)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius" index="0"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_vke4h")
+
+[node name="AttackRadiusSprite" type="Sprite2D" parent="AttackRadius" index="1"]
+light_mask = 0
+z_index = 1
+position = Vector2(-2, -8)
+texture = SubResource("GradientTexture2D_hax3f")
+script = ExtResource("4_lsu1h")
+
+[node name="AttackCooldown" type="Timer" parent="." index="2"]
+autostart = true
+
+[node name="DescriptionLabel" parent="." index="5"]
+text = "Attacks the nearest enemy."
+
+[connection signal="body_entered" from="AttackRadius" to="." method="_on_attack_radius_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+
+[editable path="MyArea"]

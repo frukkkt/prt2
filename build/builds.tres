@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://buow6kn110ll7"]
+
+[ext_resource type="PackedScene" uid="uid://dw1xbi3an28oy" path="res://build/builds/base/base.tscn" id="1_u0145"]
+[ext_resource type="PackedScene" uid="uid://bpeg62ufl6noc" path="res://build/builds/flood/flood.tscn" id="2_ge3pt"]
+[ext_resource type="PackedScene" uid="uid://cx0ijvmpkucsm" path="res://build/builds/gold_mine/gold_mine.tscn" id="3_gq6al"]
+[ext_resource type="PackedScene" uid="uid://eo2xwph6s0he" path="res://build/builds/moat/moat.tscn" id="4_6n6jt"]
+[ext_resource type="PackedScene" uid="uid://b6upphtm384dd" path="res://build/builds/tower/tower.tscn" id="5_ochpk"]
+[ext_resource type="PackedScene" uid="uid://lchi6vm8wce4" path="res://build/builds/rapid_tower/rapid_tower.tscn" id="6_17nxc"]
+[ext_resource type="Script" uid="uid://do2fm3ftckltl" path="res://build/builds.gd" id="6_m81mr"]
+[ext_resource type="PackedScene" uid="uid://cobpo3gg4obs1" path="res://build/builds/mountains/mountains.tscn" id="7_1fo5a"]
+[ext_resource type="PackedScene" uid="uid://cu65xr5iox76f" path="res://build/builds/big_mountains/big_mountains.tscn" id="8_slwnv"]
+
+[resource]
+script = ExtResource("6_m81mr")
+update = false
+scene_dict = {
+"base": ExtResource("1_u0145"),
+"big_mountains": ExtResource("8_slwnv"),
+"flood": ExtResource("2_ge3pt"),
+"gold_mine": ExtResource("3_gq6al"),
+"moat": ExtResource("4_6n6jt"),
+"mountains": ExtResource("7_1fo5a"),
+"rapid_tower": ExtResource("6_17nxc"),
+"tower": ExtResource("5_ochpk")
+}

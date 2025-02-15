@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwnq20miy4o8b"]
+
+[ext_resource type="PackedScene" uid="uid://mgnhuqwbulbs" path="res://build_effect/build_effect.tscn" id="1_oab7u"]
+[ext_resource type="Script" uid="uid://3mlnnwygkbmy" path="res://build_effect/build_effects/gold_tower_effect/gold_tower_effect.gd" id="2_8si3o"]
+
+[node name="GoldTowerEffect" instance=ExtResource("1_oab7u")]
+script = ExtResource("2_8si3o")
+tower_modulate = Color(1, 1, 0.68, 1)
+
+[node name="DescriptionLabel" parent="." index="0"]
+text = "Increased damage, each shot spends 1 gold"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dnsitnqlbcp63"]
+
+[ext_resource type="Resource" uid="uid://buow6kn110ll7" path="res://build/builds.tres" id="1_s1rf4"]
+[ext_resource type="Script" uid="uid://coq13pvrox8uu" path="res://build_menu/deck.gd" id="1_y0e04"]
+
+[resource]
+script = ExtResource("1_y0e04")
+packed_builds = Array[PackedScene]([])
+metadata/builds = ExtResource("1_s1rf4")

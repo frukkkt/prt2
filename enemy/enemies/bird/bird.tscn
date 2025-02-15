@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7elr1alo7wun"]
+
+[ext_resource type="PackedScene" uid="uid://idl34wjpcp2s" path="res://enemy/enemy.tscn" id="1_xuwtg"]
+[ext_resource type="Script" uid="uid://c5cookptvlofd" path="res://enemy/enemies/bird/bird.gd" id="2_q7o7n"]
+
+[node name="Bird" instance=ExtResource("1_xuwtg")]
+script = ExtResource("2_q7o7n")
+
+[node name="enemy_walk" parent="CharacterBody2D" index="5"]
+scale = Vector2(1, -1)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ndrs8k2favr"]
+
+[ext_resource type="PackedScene" uid="uid://mgnhuqwbulbs" path="res://build_effect/build_effect.tscn" id="1_owmna"]
+[ext_resource type="Script" uid="uid://bsvrgwed2qd7b" path="res://build_effect/build_effects/enemy_hp_redution/enemy_hp_redution.gd" id="2_vnxdw"]
+
+[node name="BuildEffect" instance=ExtResource("1_owmna")]
+script = ExtResource("2_vnxdw")
+
+[node name="DescriptionLabel" parent="." index="0"]
+text = "Reduces HP of enemies upon spawning"

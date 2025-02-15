@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite AnimatedSprite2D Import"
+type="PackedScene"
+uid="uid://co1d1vvute6js"
+path="res://.godot/imported/boss_enemy_walk.ase-ed9efb18212e3e67b46816f919a7a679.scn"
+
+[deps]
+
+source_file="res://sprites/boss_enemy_walk.ase"
+dest_files=["res://.godot/imported/boss_enemy_walk.ase-ed9efb18212e3e67b46816f919a7a679.scn"]
+
+[params]
+
+spritesheet/layout=0
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

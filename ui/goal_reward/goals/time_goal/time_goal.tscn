@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://8riywfflr0mg"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_tqthn"]
+[ext_resource type="Script" uid="uid://c5kf4udveafal" path="res://ui/goal_reward/goals/time_goal/time_goal.gd" id="2_i2kxw"]
+
+[node name="TimeGoal" instance=ExtResource("1_tqthn")]
+script = ExtResource("2_i2kxw")
+unlocked_build = null
+goal_name = "Hold on "
+
+[node name="Timer" type="Timer" parent="." index="0"]

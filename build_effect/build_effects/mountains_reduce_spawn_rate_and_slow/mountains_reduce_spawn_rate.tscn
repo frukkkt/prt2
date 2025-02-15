@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddryoedctbuxw"]
+
+[ext_resource type="PackedScene" uid="uid://mgnhuqwbulbs" path="res://build_effect/build_effect.tscn" id="1_c66bf"]
+[ext_resource type="Script" uid="uid://donrap6ahqea4" path="res://build_effect/build_effects/mountains_reduce_spawn_rate_and_slow/mountains_reduce_spawn_rate.gd" id="2_gfrek"]
+
+[node name="MountainsReduceSpawnRateAndSlowEnemy" instance=ExtResource("1_c66bf")]
+script = ExtResource("2_gfrek")
+spawn_rate_reduction = 0.04
+
+[node name="DescriptionLabel" parent="." index="0"]
+text = "Reduces spawn rate and slows down enemies"

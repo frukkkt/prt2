@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://idl34wjpcp2s"]
+
+[ext_resource type="Script" uid="uid://2neigpn7b21u" path="res://enemy/enemy.gd" id="1_kn6ma"]
+[ext_resource type="Script" uid="uid://nbww8q8roj0a" path="res://enemy/character_body_2d.gd" id="2_c0yed"]
+[ext_resource type="Texture2D" uid="uid://g2xjjtocevba" path="res://sprites/enemy.png" id="3_itbjb"]
+[ext_resource type="Script" uid="uid://mphto2vmcm2w" path="res://enemy/damage_builds.gd" id="3_sbnjk"]
+[ext_resource type="PackedScene" uid="uid://jtehwklhtqxe" path="res://sprites/enemy_walk.ase" id="4_1gvf7"]
+[ext_resource type="Script" uid="uid://bfenleyk751rh" path="res://enemy/touch_screen_button.gd" id="5_6agia"]
+[ext_resource type="Script" uid="uid://cdtm58emiu5fk" path="res://enemy_effects/enemy_effects.gd" id="6_qnn01"]
+[ext_resource type="Script" uid="uid://bwpaf7va051x4" path="res://enemy/health_bar.gd" id="7_wn8tj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_816pf"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfagt"]
+size = Vector2(33, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvms5"]
+size = Vector2(32, 32)
+
+[node name="Enemy" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_kn6ma")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("2_c0yed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_816pf")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_cfagt")
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+visible = false
+color = Color(0.64375, 0.426208, 0.219277, 1)
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(16, 16)
+texture = ExtResource("3_itbjb")
+
+[node name="enemy_walk" parent="CharacterBody2D" instance=ExtResource("4_1gvf7")]
+position = Vector2(16, 16)
+autoplay = "default"
+frame_progress = 0.182955
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D"]
+unique_name_in_owner = true
+offset_top = -4.0
+offset_right = 32.0
+show_percentage = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D"]
+position = Vector2(16, 15)
+shape = SubResource("RectangleShape2D_hvms5")
+script = ExtResource("5_6agia")
+
+[node name="DestroyBuilds" type="Node" parent="."]
+script = ExtResource("3_sbnjk")
+
+[node name="EnemyEffects" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_qnn01")
+
+[node name="HealthBar" type="Node" parent="."]
+script = ExtResource("7_wn8tj")
+
+[node name="DescriptionLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "has normal HP, normal speed..."
+
+[node name="NameLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Enemy"
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="DestroyBuilds" method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="CharacterBody2D/TouchScreenButton" to="CharacterBody2D/TouchScreenButton" method="_on_pressed"]

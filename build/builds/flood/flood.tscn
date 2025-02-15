@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpeg62ufl6noc"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_qth0u"]
+[ext_resource type="Texture2D" uid="uid://crhfaodk56p1r" path="res://sprites/moat.png" id="2_ogbpi"]
+
+[node name="Flood" groups=["flood"] instance=ExtResource("1_qth0u")]
+editor_description = "Непригодная для строительства место. Возникает из-за переизбытка Moat(Рва). Ничего не делает врагам."
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+modulate = Color(0.429101, 0.421875, 1, 1)
+texture = ExtResource("2_ogbpi")
+
+[node name="DescriptionLabel" parent="." index="3"]
+text = "Appears when Moat is over 10. Doesn't do anything"
+
+[editable path="MyArea"]

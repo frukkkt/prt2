@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=15 format=3 uid="uid://bwenwerorm4pc"]
+
+[ext_resource type="Script" uid="uid://dbl4tgpwpcv2h" path="res://card_cost/card_cost.gd" id="1_7y0sr"]
+[ext_resource type="PackedScene" uid="uid://cx0ijvmpkucsm" path="res://build/builds/gold_mine/gold_mine.tscn" id="1_qhy1k"]
+[ext_resource type="Resource" uid="uid://b57vgsujnlx36" path="res://card_cost/costs/gold_mine_cost.tres" id="2_d86kv"]
+[ext_resource type="PackedScene" uid="uid://b6upphtm384dd" path="res://build/builds/tower/tower.tscn" id="3_qlcph"]
+[ext_resource type="Resource" uid="uid://cd81jicqbyaga" path="res://card_cost/costs/tower_cost.tres" id="4_kp3nh"]
+[ext_resource type="PackedScene" uid="uid://lchi6vm8wce4" path="res://build/builds/rapid_tower/rapid_tower.tscn" id="5_ymdh4"]
+[ext_resource type="Resource" uid="uid://dhbnmelixtyek" path="res://card_cost/costs/rapid_tower_cost.tres" id="6_ubbfc"]
+[ext_resource type="PackedScene" uid="uid://eo2xwph6s0he" path="res://build/builds/moat/moat.tscn" id="7_bqx8h"]
+[ext_resource type="Resource" uid="uid://76a351sh01f1" path="res://card_cost/costs/moat_cost.tres" id="8_ui2ol"]
+[ext_resource type="PackedScene" uid="uid://dw1xbi3an28oy" path="res://build/builds/base/base.tscn" id="9_m1j5d"]
+[ext_resource type="Resource" uid="uid://b6d7gd50n7mej" path="res://card_cost/default_cost.tres" id="10_3kfso"]
+[ext_resource type="PackedScene" uid="uid://bpeg62ufl6noc" path="res://build/builds/flood/flood.tscn" id="11_d0wfn"]
+[ext_resource type="PackedScene" uid="uid://cobpo3gg4obs1" path="res://build/builds/mountains/mountains.tscn" id="12_w7grx"]
+[ext_resource type="PackedScene" uid="uid://cu65xr5iox76f" path="res://build/builds/big_mountains/big_mountains.tscn" id="13_ph0uk"]
+
+[resource]
+script = ExtResource("1_7y0sr")
+card_cost = {
+ExtResource("1_qhy1k"): ExtResource("2_d86kv"),
+ExtResource("3_qlcph"): ExtResource("4_kp3nh"),
+ExtResource("5_ymdh4"): ExtResource("6_ubbfc"),
+ExtResource("7_bqx8h"): ExtResource("8_ui2ol"),
+ExtResource("9_m1j5d"): ExtResource("10_3kfso"),
+ExtResource("11_d0wfn"): ExtResource("10_3kfso"),
+ExtResource("12_w7grx"): ExtResource("10_3kfso"),
+ExtResource("13_ph0uk"): ExtResource("10_3kfso")
+}
+update = false

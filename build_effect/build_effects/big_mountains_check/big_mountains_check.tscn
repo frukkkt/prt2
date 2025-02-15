@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqci0lmfey86i"]
+
+[ext_resource type="PackedScene" uid="uid://mgnhuqwbulbs" path="res://build_effect/build_effect.tscn" id="1_0gge7"]
+[ext_resource type="Script" uid="uid://x8yc2sch1pyt" path="res://build_effect/build_effects/big_mountains_check/big_mountains_check.gd" id="2_72ce2"]
+
+[node name="BigMountainsCheck" groups=["big_mountains_check"] instance=ExtResource("1_0gge7")]
+script = ExtResource("2_72ce2")
+hide_effect_description = true
+
+[node name="DescriptionLabel" parent="." index="0"]
+text = "Если рядом 9 то превращается в big mountain"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://hpc32lpbxm68"]
+
+[ext_resource type="Script" uid="uid://b0lg8isvn7puv" path="res://player/attack/sword.gd" id="1_u422p"]
+[ext_resource type="Texture2D" uid="uid://bexp4vejyn1ey" path="res://sprites/sword.png" id="2_cslrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnbf6"]
+size = Vector2(12, 50)
+
+[node name="Sword" type="Node2D" groups=["sword"]]
+script = ExtResource("1_u422p")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-8, 0, -8, 56, 0, 64, 8, 56, 8, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_wnbf6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+texture = ExtResource("2_cslrb")
+flip_v = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhmn1rl81gx3o"]
+
+[ext_resource type="Script" uid="uid://brf1fdnucoxnm" path="res://enemy_effects/enemy_effect.gd" id="1_3l600"]
+
+[node name="EnemyEffect" type="Node"]
+script = ExtResource("1_3l600")
+
+[node name="DescriptionLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Это описание эффекта"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://lchi6vm8wce4"]
+
+[ext_resource type="PackedScene" uid="uid://b6upphtm384dd" path="res://build/builds/tower/tower.tscn" id="1_5nlqs"]
+[ext_resource type="Texture2D" uid="uid://c2rm2i6dgf2nl" path="res://sprites/rapid_tower.png" id="2_o1ce8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ieuhp"]
+radius = 176.726
+
+[node name="RapidTower" instance=ExtResource("1_5nlqs")]
+build_name = "Rapid Tower"
+
+[node name="Polygon2D" parent="StaticBody2D" index="1"]
+color = Color(0.740625, 0.201357, 0.30247, 1)
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+texture = ExtResource("2_o1ce8")
+
+[node name="CollisionShape2D" parent="AttackRadius" index="0"]
+shape = SubResource("CircleShape2D_ieuhp")
+
+[node name="AttackCooldown" parent="." index="2"]
+wait_time = 0.3

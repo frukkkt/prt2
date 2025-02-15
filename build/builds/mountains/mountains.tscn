@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cobpo3gg4obs1"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_n4c1v"]
+[ext_resource type="Script" uid="uid://bp7w0rag43hw4" path="res://build/builds/mountains/mountains.gd" id="2_0jvac"]
+[ext_resource type="Texture2D" uid="uid://loume2gj7wj5" path="res://sprites/mountains.png" id="2_dr5wq"]
+[ext_resource type="PackedScene" uid="uid://dqci0lmfey86i" path="res://build_effect/build_effects/big_mountains_check/big_mountains_check.tscn" id="3_6o75a"]
+[ext_resource type="PackedScene" uid="uid://cx8y3evom0vx1" path="res://build_effect/build_effects/mountains_slow/mountains_slow.tscn" id="4_66lkh"]
+
+[node name="Mountains" groups=["mountains"] instance=ExtResource("1_n4c1v")]
+script = ExtResource("2_0jvac")
+max_hp = 3.0
+build_name = "Mountains"
+start_effects = Array[PackedScene]([ExtResource("3_6o75a"), ExtResource("4_66lkh")])
+
+[node name="StaticBody2D" parent="." index="0"]
+collision_layer = 8
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+texture = ExtResource("2_dr5wq")
+
+[node name="DescriptionLabel" parent="." index="3"]
+text = ""
+
+[editable path="MyArea"]

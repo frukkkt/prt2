@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmxrtokflgvf2"]
+
+[ext_resource type="Script" uid="uid://d2cjuq0lichxa" path="res://player/player.gd" id="1_agjbs"]
+[ext_resource type="Script" uid="uid://mmwr8ghal21i" path="res://player/character_body_2d.gd" id="2_mopsv"]
+[ext_resource type="Script" uid="uid://b1m2r4t7xuyj2" path="res://player/attack/attack.gd" id="3_350f7"]
+[ext_resource type="Texture2D" uid="uid://cyeb181llcw70" path="res://sprites/player.png" id="4_arini"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g504n"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbcka"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" groups=["player"]]
+visible = false
+script = ExtResource("1_agjbs")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_mopsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_g504n")
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+visible = false
+z_index = 1
+color = Color(0.177773, 0.243616, 0.4625, 1)
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+
+[node name="Attack" type="Node2D" parent="CharacterBody2D"]
+position = Vector2(16, 16)
+script = ExtResource("3_350f7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(7, 15)
+texture = ExtResource("4_arini")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_hbcka")
+animation = &"walk"

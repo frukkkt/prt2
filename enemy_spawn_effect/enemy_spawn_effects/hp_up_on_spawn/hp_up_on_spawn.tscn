@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5gyx4t3c8c7v"]
+
+[ext_resource type="PackedScene" uid="uid://32dt5wyxxksg" path="res://enemy_spawn_effect/enemy_spawn_effect.tscn" id="1_s44x5"]
+[ext_resource type="Script" uid="uid://n3rjmoi4muul" path="res://enemy_spawn_effect/enemy_spawn_effects/hp_up_on_spawn/hp_up_on_spawn.gd" id="2_id81c"]
+
+[node name="HpUpOnSpawn" instance=ExtResource("1_s44x5")]
+script = ExtResource("2_id81c")
+additional_hp = 5.0

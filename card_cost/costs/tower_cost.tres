@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cd81jicqbyaga"]
+
+[ext_resource type="Script" uid="uid://u7f3aq67wt3t" path="res://card_cost/default_cost.gd" id="1_ktco5"]
+
+[resource]
+script = ExtResource("1_ktco5")
+cost = 8
+resource = 0

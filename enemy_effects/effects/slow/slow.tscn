@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv7lllrlw65qi"]
+
+[ext_resource type="PackedScene" uid="uid://dhmn1rl81gx3o" path="res://enemy_effects/enemy_effect.tscn" id="1_tj8nv"]
+[ext_resource type="Script" uid="uid://dtstmyso7ogiu" path="res://enemy_effects/effects/slow/slow.gd" id="2_l85xa"]
+
+[node name="Slow" instance=ExtResource("1_tj8nv")]
+script = ExtResource("2_l85xa")
+time = 1.0
+hide_effect_description = true

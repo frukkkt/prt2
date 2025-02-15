@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=12 format=3 uid="uid://dn2dyaesib8v6"]
+
+[ext_resource type="AudioStream" uid="uid://bv366jjwsieik" path="res://ui_sounds/mp3/build_created.mp3" id="1_6uylf"]
+[ext_resource type="Script" uid="uid://cfj3p7hbiedo2" path="res://mp3_pool/all_mp3.gd" id="1_rws3o"]
+[ext_resource type="AudioStream" uid="uid://b5s6a8svjblrr" path="res://ui_sounds/mp3/button_pressed.mp3" id="2_1arn3"]
+[ext_resource type="AudioStream" uid="uid://dwt35brxf8an2" path="res://ui_sounds/mp3/button_up.mp3" id="3_c6fxl"]
+[ext_resource type="AudioStream" uid="uid://clkj4wlysqyi7" path="res://ui_sounds/mp3/enemy_hit.mp3" id="4_e5wus"]
+[ext_resource type="AudioStream" uid="uid://bksw7yphvhac" path="res://ui_sounds/mp3/enemy_kill.mp3" id="5_djgpi"]
+[ext_resource type="AudioStream" uid="uid://d0jankoco1725" path="res://ui_sounds/mp3/enemy_death.wav" id="6_mfdcm"]
+[ext_resource type="AudioStream" uid="uid://cvvpqedaxrfi1" path="res://ui_sounds/mp3/win.wav" id="7_1van1"]
+[ext_resource type="AudioStream" uid="uid://k3tvkjm0xm0x" path="res://ui_sounds/mp3/buy_sell.wav" id="9_f3feg"]
+[ext_resource type="AudioStream" uid="uid://bvqecoxnmrm00" path="res://ui_sounds/mp3/lose.wav" id="10_p10ue"]
+[ext_resource type="AudioStream" uid="uid://k6bubudoq83e" path="res://ui_sounds/mp3/res_collected.wav" id="11_s6gsa"]
+
+[resource]
+script = ExtResource("1_rws3o")
+all_mp3 = {
+"build_created": ExtResource("1_6uylf"),
+"button_pressed": ExtResource("2_1arn3"),
+"button_up": ExtResource("3_c6fxl"),
+"buy_sell": ExtResource("9_f3feg"),
+"enemy_death": ExtResource("6_mfdcm"),
+"enemy_hit": ExtResource("4_e5wus"),
+"enemy_kill": ExtResource("5_djgpi"),
+"lose": ExtResource("10_p10ue"),
+"res_collected": ExtResource("11_s6gsa"),
+"win": ExtResource("7_1van1")
+}
+update = false

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://7l1cqh75dp1t"]
+
+[ext_resource type="PackedScene" uid="uid://idl34wjpcp2s" path="res://enemy/enemy.tscn" id="1_ivaj8"]
+[ext_resource type="Script" uid="uid://bfxxn6qn7op7l" path="res://enemy/enemies/gold_enemy/gold_enemy.gd" id="2_s4w7p"]
+[ext_resource type="PackedScene" uid="uid://dfdjy8ncaqqdi" path="res://enemy_effects/effects/gold_drop/gold_drop.tscn" id="3_on0pr"]
+
+[node name="GoldEnemy" instance=ExtResource("1_ivaj8")]
+script = ExtResource("2_s4w7p")
+gold_drop = 5
+
+[node name="Polygon2D" parent="CharacterBody2D" index="2"]
+color = Color(0.919, 1, 0.072, 1)
+
+[node name="Sprite2D" parent="CharacterBody2D" index="4"]
+modulate = Color(0.78125, 1, 0, 1)
+
+[node name="enemy_walk" parent="CharacterBody2D" index="5"]
+modulate = Color(1, 0.99375, 0, 1)
+
+[node name="EnemyEffects" parent="." index="2"]
+start_effect = Array[PackedScene]([ExtResource("3_on0pr")])
+
+[node name="NameLabel" parent="." index="5"]
+text = "Gold Enemy"

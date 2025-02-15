@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh4jsdnpk4xb8"]
+
+[ext_resource type="Script" uid="uid://ci8eghb7vrbpq" path="res://map/cell.gd" id="1_hgvgg"]
+[ext_resource type="Script" uid="uid://egxxsdr72mn2" path="res://map/touch_screen_button.gd" id="2_rfof5"]
+
+[sub_resource type="Gradient" id="Gradient_7ubk8"]
+offsets = PackedFloat32Array(0.96875, 1)
+colors = PackedColorArray(0.38125, 0.38125, 0.38125, 1, 0.19, 0.19, 0.19, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 32
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kkkmf"]
+gradient = SubResource("Gradient_7ubk8")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxtpe"]
+size = Vector2(31, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au01i"]
+size = Vector2(30, 30)
+
+[node name="Cell" type="Node2D" groups=["cell"]]
+script = ExtResource("1_hgvgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_kkkmf")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_dxtpe")
+script = ExtResource("2_rfof5")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_au01i")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+[connection signal="mouse_entered" from="Area2D" to="TouchScreenButton" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="TouchScreenButton" method="_on_area_2d_mouse_exited"]

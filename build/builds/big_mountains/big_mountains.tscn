@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu65xr5iox76f"]
+
+[ext_resource type="PackedScene" uid="uid://cobpo3gg4obs1" path="res://build/builds/mountains/mountains.tscn" id="1_aiwvj"]
+[ext_resource type="PackedScene" uid="uid://cx8y3evom0vx1" path="res://build_effect/build_effects/mountains_slow/mountains_slow.tscn" id="2_hmve6"]
+[ext_resource type="PackedScene" uid="uid://ddryoedctbuxw" path="res://build_effect/build_effects/mountains_reduce_spawn_rate_and_slow/mountains_reduce_spawn_rate.tscn" id="3_dyq8d"]
+
+[node name="BigMountains" instance=ExtResource("1_aiwvj")]
+start_effects = Array[PackedScene]([ExtResource("2_hmve6"), ExtResource("3_dyq8d")])
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+modulate = Color(1, 0.76, 0.76, 1)
+
+[editable path="MyArea"]

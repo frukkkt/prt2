@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctl8heuumvw4p"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_arppo"]
+[ext_resource type="Script" uid="uid://d05cjocd4mkob" path="res://ui/goal_reward/goals/boss_goal/boss_goal.gd" id="2_55l68"]
+[ext_resource type="PackedScene" uid="uid://eo2xwph6s0he" path="res://build/builds/moat/moat.tscn" id="3_1gnhe"]
+
+[node name="BossGoal" instance=ExtResource("1_arppo")]
+script = ExtResource("2_55l68")
+unlocked_build = ExtResource("3_1gnhe")
+wait_time = 5.0
+goal_name = "Kill Boss"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx8y3evom0vx1"]
+
+[ext_resource type="PackedScene" uid="uid://mgnhuqwbulbs" path="res://build_effect/build_effect.tscn" id="1_3c64h"]
+[ext_resource type="Script" uid="uid://dupnk2fs380dx" path="res://build_effect/build_effects/mountains_slow/mountains_slow.gd" id="2_arvxk"]
+
+[node name="MountainsSlow" instance=ExtResource("1_3c64h")]
+script = ExtResource("2_arvxk")
+
+[node name="DescriptionLabel" parent="." index="0"]
+text = "Enemies slow down in mountains."

@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct3vl7xwwspni"]
+
+[ext_resource type="Script" uid="uid://dnc1l5hwho72c" path="res://build/build.gd" id="1_iqm65"]
+[ext_resource type="PackedScene" uid="uid://cqh75j3q03shj" path="res://my_area/my_area.tscn" id="2_cxsyv"]
+[ext_resource type="Texture2D" uid="uid://biroy6f0br52i" path="res://sprites/base.png" id="2_qn7xj"]
+[ext_resource type="Shader" uid="uid://bs1tlieuhrdyi" path="res://build/shide.gdshader" id="2_xo6pw"]
+[ext_resource type="Script" uid="uid://b28jvoukmvekd" path="res://build/touch_screen_button.gd" id="3_rolla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w5fk"]
+size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6golj"]
+shader = ExtResource("2_xo6pw")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slacn"]
+size = Vector2(33, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpooa"]
+size = Vector2(30, 30)
+
+[node name="Build" type="Node2D" groups=["build"]]
+script = ExtResource("1_iqm65")
+build_name = "Build"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_4w5fk")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+visible = false
+color = Color(0.46875, 0.262207, 0.262207, 1)
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+clip_children = 2
+position = Vector2(16, 16)
+texture = ExtResource("2_qn7xj")
+
+[node name="ShineEffect" type="ColorRect" parent="StaticBody2D/Sprite2D"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_6golj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MyArea" parent="." instance=ExtResource("2_cxsyv")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" parent="MyArea" index="0"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_slacn")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_cpooa")
+script = ExtResource("3_rolla")
+
+[node name="DescriptionLabel" type="Label" parent="."]
+editor_description = "Описание пишется в Label чтобы потом локализировать"
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Это описание постройки"
+
+[connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
+[connection signal="released" from="TouchScreenButton" to="TouchScreenButton" method="_on_released"]
+
+[editable path="MyArea"]

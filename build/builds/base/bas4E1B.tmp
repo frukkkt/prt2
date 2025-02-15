@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw1xbi3an28oy"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_txmgl"]
+[ext_resource type="Script" path="res://build/base/base.gd" id="2_3wygv"]
+[ext_resource type="PackedScene" uid="uid://cisac7n8cl1iv" path="res://build/base/build_buy_card.tscn" id="3_owg7k"]
+[ext_resource type="Script" path="res://build/base/buy_builds.gd" id="4_a2a1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb1cg"]
+size = Vector2(32, 32)
+
+[node name="Base" groups=["base"] instance=ExtResource("1_txmgl")]
+script = ExtResource("2_3wygv")
+build_name = "Base"
+
+[node name="Polygon2D" parent="StaticBody2D" index="1"]
+color = Color(0.195137, 0.452082, 0.60625, 1)
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_kb1cg")
+
+[node name="BaseStore" type="CanvasLayer" parent="." index="2"]
+unique_name_in_owner = true
+visible = false
+
+[node name="Control" type="Control" parent="BaseStore" index="0"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_top = -136.0
+offset_right = -32.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseStore/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildBuyCard" parent="BaseStore/Control/HBoxContainer" index="0" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuildBuyCard2" parent="BaseStore/Control/HBoxContainer" index="1" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuildBuyCard3" parent="BaseStore/Control/HBoxContainer" index="2" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuildBuyCard4" parent="BaseStore/Control/HBoxContainer" index="3" instance=ExtResource("3_owg7k")]
+layout_mode = 2
+
+[node name="BuyBuilds" type="Node" parent="BaseStore/Control/HBoxContainer" index="4"]
+script = ExtResource("4_a2a1q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

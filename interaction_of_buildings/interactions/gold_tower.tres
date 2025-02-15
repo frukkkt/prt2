@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildInteraction" load_steps=3 format=3 uid="uid://b1brrkdwq5ei1"]
+
+[ext_resource type="Script" uid="uid://dw6sorq718do5" path="res://interaction_of_buildings/interaction.gd" id="1_5nn2l"]
+[ext_resource type="PackedScene" uid="uid://bwnq20miy4o8b" path="res://build_effect/build_effects/gold_tower_effect/gold_tower_effect.tscn" id="1_yccu3"]
+
+[resource]
+script = ExtResource("1_5nn2l")
+interacting_build_groups = Array[String](["gold_mine", "tower"])
+group_effect = {
+"tower": ExtResource("1_yccu3")
+}

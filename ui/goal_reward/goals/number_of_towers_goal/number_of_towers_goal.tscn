@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx788olceal4r"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_hmlfl"]
+[ext_resource type="Script" uid="uid://dvquocjn3luk5" path="res://ui/goal_reward/goals/number_of_towers_goal/number_of_towers_goal.gd" id="2_2pomh"]
+[ext_resource type="PackedScene" uid="uid://lchi6vm8wce4" path="res://build/builds/rapid_tower/rapid_tower.tscn" id="3_5puiq"]
+
+[node name="NumberOfTowersGoal" instance=ExtResource("1_hmlfl")]
+script = ExtResource("2_2pomh")
+unlocked_build = ExtResource("3_5puiq")
+goal_value = 300.0
+goal_name = "Place Tower"

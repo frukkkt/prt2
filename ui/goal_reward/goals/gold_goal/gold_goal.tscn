@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b813eimd7ppb4"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_whed1"]
+[ext_resource type="Script" uid="uid://b2fw2l8fwrl3i" path="res://ui/goal_reward/goals/gold_goal/gold_goal.gd" id="2_2jogd"]
+
+[node name="GoldGoal" instance=ExtResource("1_whed1")]
+script = ExtResource("2_2jogd")
+unlocked_build = null
+goal_name = "Collect Gold"

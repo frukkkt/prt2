@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxg2kwg0lwynj"]
+
+[ext_resource type="PackedScene" uid="uid://32dt5wyxxksg" path="res://enemy_spawn_effect/enemy_spawn_effect.tscn" id="1_iuo3p"]
+[ext_resource type="Script" uid="uid://dognghpnfyf23" path="res://enemy_spawn_effect/enemy_spawn_effects/slow_down_on_spawn/slow_down_on_spawn.gd" id="2_eeeia"]
+
+[node name="SlowDownOnSpawn" instance=ExtResource("1_iuo3p")]
+script = ExtResource("2_eeeia")
+reducing_speed = 1.0

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://djekfv31l1ksk"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_kukoy"]
+[ext_resource type="Script" uid="uid://b6cbbqnu0gw3f" path="res://ui/goal_reward/goals/build_base/build_base.gd" id="2_nc4dg"]
+
+[node name="BuildBase" instance=ExtResource("1_kukoy")]
+script = ExtResource("2_nc4dg")
+goal_name = "Build Base"

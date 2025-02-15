@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://eo2xwph6s0he"]
+
+[ext_resource type="PackedScene" uid="uid://ct3vl7xwwspni" path="res://build/build.tscn" id="1_uys4q"]
+[ext_resource type="PackedScene" uid="uid://b0ndrs8k2favr" path="res://build_effect/build_effects/enemy_hp_redution/enemy_hp_redution.tscn" id="2_1xo5i"]
+[ext_resource type="Texture2D" uid="uid://crhfaodk56p1r" path="res://sprites/moat.png" id="2_ae3vk"]
+[ext_resource type="Script" uid="uid://cito02at8l7uf" path="res://build/builds/moat/slow_enemy.gd" id="3_soldq"]
+[ext_resource type="Script" uid="uid://cjoy5n1a3ha7h" path="res://build/builds/moat/add_new_enemy.gd" id="4_mio0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti7xf"]
+size = Vector2(33, 33)
+
+[node name="Moat" groups=["ignored_targeting_build", "moat"] instance=ExtResource("1_uys4q")]
+editor_description = "каждый 5 ров - увеличивает шанс спавна летающего моба.
+каждый 10 ров - потоп(спавнит на незанятых соседних клетках ров)"
+max_hp = 2.0
+build_name = "Moat"
+start_effects = Array[PackedScene]([ExtResource("2_1xo5i")])
+
+[node name="StaticBody2D" parent="." index="0"]
+collision_layer = 8
+
+[node name="Sprite2D" parent="StaticBody2D" index="2"]
+texture = ExtResource("2_ae3vk")
+
+[node name="SlowArea" type="Area2D" parent="StaticBody2D" index="3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/SlowArea" index="0"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_ti7xf")
+
+[node name="SlowEnemy" type="Node" parent="." index="1"]
+script = ExtResource("3_soldq")
+
+[node name="MoatInteraction" type="Node" parent="." index="2"]
+script = ExtResource("4_mio0v")
+
+[node name="DescriptionLabel" parent="." index="5"]
+text = "Slows Enemy"
+
+[connection signal="body_entered" from="StaticBody2D/SlowArea" to="SlowEnemy" method="_on_slow_area_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/SlowArea" to="SlowEnemy" method="_on_slow_area_body_exited"]
+
+[editable path="MyArea"]

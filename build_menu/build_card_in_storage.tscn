@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxwfeo3rnbkuk"]
+
+[ext_resource type="PackedScene" uid="uid://db5arf437ljhc" path="res://card/card.tscn" id="1_qpoew"]
+[ext_resource type="Script" uid="uid://cmaqsffiqgbkj" path="res://build_menu/build_card_in_storage.gd" id="2_ap8ao"]
+
+[node name="BuildCardInStorage" groups=["build_card_in_storage"] instance=ExtResource("1_qpoew")]
+script = ExtResource("2_ap8ao")

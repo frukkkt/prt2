@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7mx1nkdhot2k"]
+
+[ext_resource type="Script" uid="uid://dw4dylharkda5" path="res://dev_tools/try_curve/try_curve.gd" id="1_mtb55"]
+
+[sub_resource type="Curve" id="Curve_omq7t"]
+_limits = [0.99, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 1.78592, 0, 1, Vector2(0.151316, 1.27024), 0.0, 0.0, 0, 0, Vector2(0.241541, 1.12569), 0.0, 0.0, 0, 0, Vector2(0.348684, 1.54875), 0.0, 0.0, 0, 0, Vector2(0.461466, 1.35837), 0.0, 0.0, 0, 0, Vector2(0.576128, 1.73912), 0.0, 0.0, 0, 0, Vector2(0.653196, 1.47119), 0.0, 0.0, 0, 0, Vector2(0.946429, 1.59458), 0.0, 0.0, 0, 0, Vector2(0.984023, 2), 10.7843, 0.0, 1, 0]
+point_count = 9
+
+[node name="TryCurve" type="Node"]
+script = ExtResource("1_mtb55")
+curve = SubResource("Curve_omq7t")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

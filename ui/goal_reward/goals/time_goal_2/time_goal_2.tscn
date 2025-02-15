@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxc6barbpyglv"]
+
+[ext_resource type="PackedScene" uid="uid://dyialsjag3864" path="res://ui/goal_reward/goal.tscn" id="1_7qirc"]
+[ext_resource type="Script" uid="uid://711bvbwj8bhm" path="res://ui/goal_reward/goals/time_goal_2/time_goal_2.gd" id="2_t2se6"]
+
+[node name="TimeGoal2" instance=ExtResource("1_7qirc")]
+script = ExtResource("2_t2se6")
+
+[node name="Timer" type="Timer" parent="." index="0"]

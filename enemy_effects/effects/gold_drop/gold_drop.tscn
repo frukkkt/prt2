@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfdjy8ncaqqdi"]
+
+[ext_resource type="PackedScene" uid="uid://dhmn1rl81gx3o" path="res://enemy_effects/enemy_effect.tscn" id="1_l7kkx"]
+[ext_resource type="Script" uid="uid://d25nks73mfhj6" path="res://enemy_effects/effects/gold_drop/gold_drop.gd" id="2_opftt"]
+
+[node name="EnemyEffect" instance=ExtResource("1_l7kkx")]
+script = ExtResource("2_opftt")
+gold_drop = 5
+
+[node name="DescriptionLabel" parent="." index="0"]
+text = "Gold drops on death"
